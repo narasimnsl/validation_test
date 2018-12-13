@@ -1,0 +1,18 @@
+ /*
+ -------------------------------------------------------------------
+            Error States
+  -------------------------------------------------------------------
+ */
+
+.error > input,
+.error > label,
+.error > .label,
+{
+    color: $err-stt-clr;
+}
+.error > input,
+.error > select,
+ {
+    border-color: $err-stt-clr;
+}
+

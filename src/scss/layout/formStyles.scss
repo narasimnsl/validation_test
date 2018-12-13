@@ -1,0 +1,97 @@
+ /*
+ -------------------------------------------------------------------
+            Form Styles
+  -------------------------------------------------------------------
+ */
+ form {
+    background: $form-bg-clr;
+    padding: 1em 1.25em;
+    border: solid 1px $form-border-clr;
+    border-radius: .25em;
+}
+
+label {
+    vertical-align: middle;
+}
+/*
+    Note: Don't change font-family on password inputs,
+    unless you want tiny •••• bullets :)
+*/
+input[type='text'],
+input[type='submit'] {
+    font-family: sans-serif;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='submit']{
+    font-size: 1em;
+    border-radius: .25em;
+    -webkit-appearance: none;
+    &:focus{
+        outline: none;
+        border-color: $input-focus-clr;
+        box-shadow: 0 0 6px $input-box-shadow-clr;
+    }
+}
+
+input[type='text'],
+input[type='password'] {
+    border: solid 1px $input-border-clr;
+    padding: .5em .5em;
+    color: $input-txt-clr;
+    width: 16em;
+}
+
+.submitButton {
+    border: solid 1px transparent;
+    background: $submit-bg-clr;
+    color: $submit-txt-clr;
+    font-size: .875em;
+    padding: .75em 1em;
+    cursor: pointer;
+    &:hover{
+        background: $submit-hover-clr;
+    }
+    &:focus{
+        background: $submit-focus-clr;
+    }
+    &:active{
+        background: $submit-active-clr;
+        border-color: $submit-active-clr;
+    }
+}
+
+
+label + input[type=checkbox] {
+    margin-left: 1em;
+}
+
+select {
+    width: 17em;
+    font-size: 1em;
+    border-radius: .25em;
+    border-color: $sel-border-clr;
+    -webkit-appearance: none;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+fieldset + fieldset {
+    border-top: solid 1px $feild-top-border-clr;
+}
+fieldset div{
+    margin: 1em 0;
+}
+
+.label {
+    width: 10em;
+    display: inline-block;
+}
+
+.completeInfo{
+    color: $form-cmp-txt-clr;
+}
