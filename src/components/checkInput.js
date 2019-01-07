@@ -1,5 +1,8 @@
 import React from 'react';
 import Aux from '../hoc/aux'
+/* Condition Imports*/
+import Conditional from '../hoc/conditional'
+
 /* Function component to handle Check Button Render*/
 const CheckInput = (props) => {
 
@@ -22,6 +25,9 @@ const CheckInput = (props) => {
                     Animal
                 </span>
                 {props.checkOptions.map(renderInputs)}
+                <Conditional if={props.clName!==""}>
+                 <p className='erroroInfo'>{props.clError}</p>
+                </Conditional>
             </div>
         </div>
     )

@@ -13,16 +13,17 @@ class CreateAccount extends Component{
  /* State to store Input element Valid state and error class*/
     state ={
         form:{
-            email:{id:'email', valid:false, erClass:""},
-            password:{id:'password', valid:false, erClass:""},
-            colour:{id:'colour', valid:false, erClass:""},
+            email:{id:'email', valid:false, erClass:"",erText:"email is not valid"},
+            password:{id:'password', valid:false, erClass:"",erText:"password must be atleast 8 char long"},
+            colour:{id:'colour', valid:false, erClass:"",erText:"atleast one colour must be selected"},
             animal:{
                 id:'animal', 
                 valid:false, 
                 erClass:"",
+                erText:"atleast two animals must be selected",
                 chStat:[]
             },
-            tiger_type:{id:'tiger_type', valid:true, erClass:""},
+            tiger_type:{id:'tiger_type', valid:true, erClass:"",erText:"tiger type must not be empty"},
         },
         showTgType:false,
         formIsValid:false
@@ -107,6 +108,7 @@ class CreateAccount extends Component{
     render(){
         let selOptionsList = ['Choose colour','Blue','Green','Red','Black','Brown'];
         let checkOptionsList = ['Bear','Tiger','Snake','Donkey']
+        let stObj = this.state.form;
         return(
             
             <Aux>
@@ -114,17 +116,17 @@ class CreateAccount extends Component{
                 <h1>Fill out this awesome form</h1>
                 <fieldset>
                     <h3>Your details</h3>
-                    <InputComp clName= {this.state.form.email.erClass} id={this.state.form.email.id} type="text" changed={this.inputChangedHandler}>Email</InputComp>
-                    <InputComp clName={this.state.form.password.erClass} id={this.state.form.password.id} type="password" changed={this.inputChangedHandler}>Password</InputComp>
+                    <InputComp clName= {stObj.email.erClass} clError = {stObj.email.erText} id={stObj.email.id} type="text" changed={this.inputChangedHandler}>Email</InputComp>
+                    <InputComp clName={stObj.password.erClass} clError = {stObj.password.erText} id={stObj.password.id} type="password" changed={this.inputChangedHandler}>Password</InputComp>
                    
                 </fieldset>
 
                 <fieldset>
                     <h3>Your animal</h3>
-                    <SelectComp clName= {this.state.form.colour.erClass} id={this.state.form.colour.id} selectOptions={selOptionsList} changed={this.inputChangedHandler}/>
-                    <CheckComp clName= {this.state.form.animal.erClass} id={this.state.form.animal.id} checkOptions={checkOptionsList} changed={this.inputChangedHandler}/>
+                    <SelectComp clName= {stObj.colour.erClass} clError = {stObj.colour.erText} id={stObj.colour.id} selectOptions={selOptionsList} changed={this.inputChangedHandler}/>
+                    <CheckComp clName= {stObj.animal.erClass} clError = {stObj.animal.erText} id={stObj.animal.id} checkOptions={checkOptionsList} changed={this.inputChangedHandler}/>
                     <Conditional if={this.state.showTgType}>
-                        <InputComp clName= {this.state.form.tiger_type.erClass} id={this.state.form.tiger_type.id} type="text" changed={this.inputChangedHandler}>Type of tiger</InputComp>
+                        <InputComp clName= {stObj.tiger_type.erClass} clError = {stObj.tiger_type.erText} id={stObj.tiger_type.id} type="text" changed={this.inputChangedHandler}>Type of tiger</InputComp>
                     </Conditional>
                    
                    
